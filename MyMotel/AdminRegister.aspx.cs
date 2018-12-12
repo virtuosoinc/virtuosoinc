@@ -192,44 +192,31 @@ namespace MyMotel
         {
             try
             {
-                #region
-                /*Create emailAvailable of type int and assign 0 to it */
-                int emailAvailable = 0;
-                /*create email variable of type string and store email address entered in txtEmail textbox*/
-                string email = txtEmail.Text;
-                /*Store email address entered in email available textbox*/
+                #region                
+                int emailAvailable = 0;              
+                string email = txtEmail.Text;              
                 emailAvailable = EmailAvailable(email);
-                /*check EmailAvailable variable equal to zero  */
+                
                 if (emailAvailable == 0)
-                {
-
-                    /*keep fieldset1 visibility value false*/
+                {  
                     fieldset1.Visible = false;
-                    /*keep btnNext visibility value false*/
-                    btnNext.Visible = false;
-                    /*keep btnBack1 visibility value false*/
-                    btnBack1.Visible = false;
-                    /*keep fieldset2 visibility value false*/
-                    fieldset2.Visible = true;
-                    /*keep btnRegister visibility value false*/
-                    btnRegister.Visible = true;
-                    /*btnBack fieldset1 visibility value false*/
+                    btnNext.Visible = false;                   
+                    btnBack1.Visible = false;                   
+                    fieldset2.Visible = true;                   
+                    btnRegister.Visible = true;                    
                     btnBack.Visible = true;
                 }
                 else
-                {
-                    /*Displaylabel text message as EMail is not Available. Please provide differant Email */
+                {                   
                     lblMessage.Text = "EMail is not Available. Please provide differant Email";
                 }
                 #endregion
             }
             catch (Exception ex)
             {
-                /*Throw an Exception when an error occurs*/
+                
                 throw ex;
-            }
-
-
+            }           
         }
         /* code to send email to user */
         public int EmailAvailable(string Email)
@@ -242,7 +229,7 @@ namespace MyMotel
                 /*create sqlconnection object conn*/
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
                 /*create sqlcommand object cmd*/
-                SqlCommand cmd = new SqlCommand("AdminEmail_Availability");
+                SqlCommand cmd = new SqlCommand("Email_Availability");
                 /*assign stored procedure to sqlcommand type*/
                 cmd.CommandType = CommandType.StoredProcedure;
                 /*Add parameter value Email*/
