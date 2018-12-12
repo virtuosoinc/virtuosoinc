@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Test.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .headerline {
+            color:white;
+            width:1200px;
+
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <!--<div class="page"></div>-->
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Motel Reservation System
+                </h1>
+            </div>         
+            <hr class="headerline"/>
+            <div class="clear hideSkiplink">
+            <table width="100%"><tr><td>
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" Visible="false" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home"/>    
+                        <asp:MenuItem NavigateUrl="~/SearchMotel.aspx" Text="Search for a Motel"/>                                               
+                        <asp:MenuItem Text="LogIn" > 
+                            <asp:MenuItem NavigateUrl="~/Login.aspx" Text="Customer Login" Value="Customer Login"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/AdminLogin.aspx" Text="Admin Login" Value="Admin Login"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <%--<asp:MenuItem NavigateUrl="~/Register.aspx" Text="Create A New Account" /> --%>
+                        <asp:MenuItem Text="Registration"> 
+                            <asp:MenuItem NavigateUrl="~/Register.aspx" Text="Customer Registration" Value="Customer Registration"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/AdminRegister.aspx" Text="Admin Registration" Value="Admin Registration"></asp:MenuItem>
+                        </asp:MenuItem>                                                                                                                                                                                              
+                    </Items>
+                </asp:Menu>
+                <asp:Menu ID="UserNavigationMenu" runat="server" CssClass="menu" Visible="false" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>                          
+                        <asp:MenuItem NavigateUrl="~/SearchMotel.aspx" Text="Search for a Motel"/>                        
+                        <asp:MenuItem NavigateUrl="~/BookingDetails.aspx" Text="Reservation History" Value="Reservation History"/>                                                                                                                                                                                                                     
+                    </Items>
+                </asp:Menu>          
+                <asp:Menu ID="AdminNavigationMenu" runat="server" CssClass="menu" Visible="false" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>                       
+                     <asp:MenuItem NavigateUrl="~/RegisterMotel.aspx" Text="Register Motel"/> 
+                     <asp:MenuItem NavigateUrl="~/UpdateMotel.aspx" Text="Modify Motel" Value="Modify Motel"/>
+                        <asp:MenuItem NavigateUrl="~/RoomAvailabilty.aspx" Text="Room Availability"/>
+                        <asp:MenuItem NavigateUrl="~/UsersDetails.aspx" Text="Users Details"/>                             
+                    </Items>
+                    </asp:Menu>      
+                </td><td style="float:right;">
+                <asp:Menu ID="InformationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>                        
+                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us"/>
+                        <asp:MenuItem NavigateUrl="~/ContactUs.aspx" Text="Contact Us"/>                                                                     
+                    </Items>
+                </asp:Menu>
+                </td></tr></table>                  
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    <!--</div>-->
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
